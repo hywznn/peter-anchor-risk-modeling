@@ -3,7 +3,7 @@
 고층 외벽 청소 작업자의 추락 위험을 줄이기 위한 **AI 안전 웨어러블 위험 감지 모델링 프로젝트**다.  
 현재 구현 범위는 웨어러블 로봇 전체가 아니라, Peter Anchor 시스템에 들어갈 수 있는 **Risk Detection Layer**다.
 
-이 repo는 팀 경진대회 산출물인 **“피터 앵커: 거미줄형 비상 그물 흡착망 AI 안전 웨어러블 로봇”**을 배경으로 삼되, 그중 실제 공개 데이터로 검증 가능한 AI 위험 감지 파트를 별도로 후속 고도화한 것이다. 원본 팀 산출물과 현재 개인 데이터 모델링 repo의 연결 관계는 [docs/original_concept_context.md](docs/original_concept_context.md)에 정리했다.
+이 repo는 팀 경진대회 산출물인 **“피터 앵커: 거미줄형 비상 그물 흡착망 AI 안전 웨어러블 로봇”** 을 배경으로 삼되, 그중 실제 공개 데이터로 검증 가능한 AI 위험 감지 파트를 별도로 후속 고도화한 것이다. 원본 팀 산출물과 현재 개인 데이터 모델링 repo의 연결 관계는 [docs/original_concept_context.md](docs/original_concept_context.md)에 정리했다.
 
 ## 0. Contribution Note
 
