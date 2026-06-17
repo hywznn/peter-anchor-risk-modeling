@@ -53,6 +53,17 @@ IMU의 가속도, 각속도, 기울기 정보는 fall-risk와 normal activity를
 - 단, 현재 공개 데이터는 window 117개로 작기 때문에 딥러닝 모델이 과적합될 가능성이 높다는 한계도 함께 검증했다.
 - Supporting evidence: 1D CNN/GRU 기반 IMU 시계열 모델링 연구는 `docs/evidence_sources.md`에 정리했다.
 
+### Hypothesis 5
+
+ROCKET 계열 random convolution kernel transform은 작은 IMU 데이터에서도 9축 시계열 패턴을 효과적으로 feature화할 수 있을 것이다.
+
+근거:
+
+- ROCKET 논문은 시계열에 무작위 convolution kernel을 적용해 feature를 만들고, 선형 분류기로 학습하는 방식을 제안한다.
+- 이 방식은 1D CNN/GRU처럼 convolution/recurrent weight를 직접 학습하지 않기 때문에, 작은 데이터에서 과적합 부담이 상대적으로 낮다.
+- 현재 프로젝트에서는 공식 ROCKET 패키지가 아니라, random kernel, max activation, PPV feature, L2 LogisticRegression 구조를 직접 구현한 `ROCKET-inspired` 파이프라인을 추가했다.
+- Supporting evidence: ROCKET/MiniRocket 논문 근거는 `docs/evidence_sources.md`와 `docs/rocket_paper_pipeline.md`에 정리했다.
+
 ## 3. 데이터 수집
 
 ### IMU 데이터
@@ -166,11 +177,28 @@ X shape = (117, 100, 9)
 
 시계열 모델에서는 StandardScaler를 사용했다. 단, 검증 데이터 통계가 학습에 새지 않도록 scaler는 각 fold의 train 데이터로만 fit하고 validation/test 데이터에는 transform만 적용했다.
 
+### ROCKET-inspired random convolution feature
+
+논문 기반 고도화 파이프라인에서는 100시점 x 9채널 IMU window에 무작위 convolution kernel을 적용했다.
+
+각 kernel에서 다음 두 feature를 만든다.
+
+- `max activation`: 해당 kernel이 가장 강하게 반응한 정도
+- `PPV`: positive activation 비율
+
+현재 설정은 512개 kernel을 사용하므로 다음 feature matrix를 만든다.
+
+```text
+512 kernels x 2 features = 1024 ROCKET-inspired features
+```
+
+이 feature는 train fold에서만 scaling한 뒤 L2 LogisticRegression에 입력한다.
+
 ## 7. 모델 선정
 
-모델은 `RandomForestClassifier`를 사용했다.
+초기 baseline 모델은 `RandomForestClassifier`를 사용했다.
 
-선정 이유:
+초기 선정 이유:
 
 - window-level tabular feature에 적합하다.
 - acceleration, gyro, body angle 사이의 비선형 관계를 다룰 수 있다.
@@ -182,19 +210,25 @@ X shape = (117, 100, 9)
 
 - `1D CNN`: 시간축을 따라 짧은 충격, 회전, 자세 변화 패턴을 찾기 위한 모델
 - `GRU`: 센서값의 시간 순서를 따라가며 낙상 전후 흐름을 보기 위한 모델
+- `ROCKET-inspired`: random convolution kernel로 시계열을 feature화하고 regularized linear classifier를 학습하는 논문 기반 모델
 
 제외한 모델:
 
 - `Transformer`: 현재 window 117개 규모에서는 parameter 수가 커 과적합 위험이 높다.
 - `3D CNN`: IMU는 영상이나 voxel 같은 3차원 격자가 아니라 9채널 시계열이므로 현재 목적에는 과하다.
 
-비교 결과, 현재 공개 데이터 규모에서는 RandomForest가 1D CNN과 GRU보다 성능이 좋았다. 따라서 최종 baseline 모델은 RandomForest로 유지한다.
+비교 결과, 현재 공개 데이터 규모에서는 1D CNN과 GRU보다 RandomForest가 안정적이었고, 이후 추가한 ROCKET-inspired 모델이 가장 높은 Macro F1을 보였다. 따라서 현재 best model은 ROCKET-inspired 모델이며, RandomForest는 설명 가능한 baseline으로 유지한다.
 
 ## 8. 모델링
 
-모델 입력:
+RandomForest baseline 입력:
 
 - 8개 window-level IMU feature
+
+ROCKET-inspired model 입력:
+
+- 100 time steps x 9 IMU channels
+- 512 random kernels에서 만든 1024개 feature
 
 모델 출력:
 
@@ -212,6 +246,8 @@ X shape = (117, 100, 9)
 구현 파일:
 
 - `src/train_real_imu_model.py`
+- `src/compare_sequence_models.py`
+- `src/train_rocket_imu_model.py`
 
 ## 9. 추가 학습 및 튜닝
 
@@ -236,16 +272,17 @@ X shape = (117, 100, 9)
 | RandomForest | 0.7521 | 0.7485 | 0.8222 |
 | 1D CNN | 0.5470 | 0.5469 | 0.6889 |
 | GRU | 0.5556 | 0.5408 | 0.4889 |
+| ROCKET-inspired | 0.8547 | 0.8472 | 0.8222 |
 
 결론:
 
-> 1D CNN과 GRU를 실제로 비교했지만, 현재 데이터 수에서는 engineered feature 기반 RandomForest가 더 안정적이다. 따라서 현 단계에서는 RandomForest를 선택하고, 향후 현장 IMU 데이터가 충분히 쌓이면 1D CNN/GRU를 다시 후보로 올린다.
+> 1D CNN과 GRU는 현재 데이터 수에서 충분히 일반화되지 못했다. ROCKET-inspired 모델은 시계열 패턴을 random convolution feature로 변환하고 선형 분류기만 학습해 작은 데이터에서 더 안정적인 성능을 보였다. 따라서 현재 best model은 ROCKET-inspired 모델이다.
 
 추가 학습 방향:
 
 - 더 많은 subject와 작업 환경 데이터 확보 후 cross-validation 적용
 - `window_size`, `stride` 비교 실험
-- RandomForest, XGBoost, LightGBM 비교
+- ROCKET kernel 수, kernel 길이, regularization strength 비교
 - recall 우선 objective 기준 threshold tuning
 - 충분한 현장 데이터 확보 후 1D CNN/GRU 재학습
 - 실제 현장 데이터 확보 후 `wind_collision_risk`, `harness_error`, `emergency_stabilization` 다중 분류 확장
@@ -271,20 +308,18 @@ X shape = (117, 100, 9)
 
 검증 결과:
 
-| Metric | Value |
-| --- | --- |
-| Validation | 3-fold StratifiedGroupKFold out-of-fold |
-| Evaluated windows | 117 |
-| Evaluated recordings | 13 |
-| Accuracy | 0.7521 |
-| Macro F1 | 0.7485 |
-| Fall recall | 0.8222 |
+| Model | Accuracy | Macro F1 | Fall recall | Confusion matrix |
+| --- | ---: | ---: | ---: | --- |
+| RandomForest | 0.7521 | 0.7485 | 0.8222 | `[[51, 21], [8, 37]]` |
+| 1D CNN | 0.5470 | 0.5469 | 0.6889 | `[[33, 39], [14, 31]]` |
+| GRU | 0.5556 | 0.5408 | 0.4889 | `[[43, 29], [23, 22]]` |
+| ROCKET-inspired | 0.8547 | 0.8472 | 0.8222 | `[[63, 9], [8, 37]]` |
 
-Confusion matrix:
+ROCKET-inspired confusion matrix:
 
 | True \ Pred | Normal | Fall |
 | --- | ---: | ---: |
-| Normal | 51 | 21 |
+| Normal | 63 | 9 |
 | Fall | 8 | 37 |
 
 모델 검증 시각화:
@@ -293,17 +328,21 @@ Confusion matrix:
 - `outputs/model_feature_importance_real_imu.png`
 - `outputs/sequence_model_comparison.png`
 - `outputs/sequence_model_confusion_matrices.png`
+- `outputs/all_model_comparison.png`
+- `outputs/rocket_confusion_matrix_oof.png`
+- `outputs/rocket_feature_space_pca.png`
 
 ## 11. 기대효과 및 검증 결과 해석
 
 ### 기대효과
 
 - 공개 실제 IMU 데이터만으로도 fall-like motion과 normal activity를 구분하는 baseline 모델을 만들 수 있다.
+- ROCKET 논문 기반 random convolution feature 파이프라인을 직접 구현해, 단순 baseline보다 높은 Macro F1을 얻었다.
 - 포트폴리오에서 합성 데이터가 아니라 실제 공개 데이터 기반의 데이터 수집, 전처리, feature engineering, 모델링, 검증 흐름을 설명할 수 있다.
 - 향후 Peter Anchor 실증 데이터가 수집되면 같은 파이프라인을 확장할 수 있다.
 
 ### 검증 결과 해석
 
-현재 결과는 fall-risk recall 0.8222로, 전체 out-of-fold fall window 45개 중 37개를 탐지했다.
+ROCKET-inspired 모델은 fall-risk recall 0.8222로, 전체 out-of-fold fall window 45개 중 37개를 탐지했다. RandomForest와 fall recall은 같지만, normal activity를 fall로 잘못 판단한 false alarm이 21개에서 9개로 줄어 Macro F1이 개선되었다.
 
 다만 이 결과는 공개 IMU 데이터셋에 대한 검증이지 Peter Anchor 제품 성능 검증이 아니다. 실제 제품화 단계에서는 rope tension, harness pressure, worker IMU, building-face wind, suction readiness를 같은 시간축으로 수집해 다시 학습하고 검증해야 한다.

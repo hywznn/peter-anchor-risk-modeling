@@ -133,6 +133,33 @@ Source: [Li et al., 2022, Applied Sciences](https://www.mdpi.com/2076-3417/12/19
 - 가속도와 각속도를 이용한 낙상 분류는 기존 연구에서도 반복적으로 쓰이는 입력 구조다.
 - 본 프로젝트의 feature engineering도 최대 가속도, 회전 강도, 자세 기울기 변화를 중심으로 설계했다.
 
+### ROCKET random convolution kernel transform
+
+Source: [ROCKET: Exceptionally fast and accurate time series classification using random convolutional kernels](https://arxiv.org/abs/1910.13051)
+
+짧은 발췌:
+
+> “random convolutional kernels”
+
+프로젝트 반영:
+
+- 9축 IMU window를 직접 시계열로 다루기 위해 ROCKET 논문의 random convolution kernel transform 아이디어를 적용했다.
+- 현재 구현은 공식 ROCKET 패키지가 아니라, random kernel, max activation, PPV feature, regularized linear classifier 구조를 작은 IMU 데이터에 맞춰 직접 구현한 `ROCKET-inspired` 파이프라인이다.
+- 기존 RandomForest보다 Macro F1이 높아져 현재 repo의 best model로 정리했다.
+
+### MiniRocket deterministic transform
+
+Source: [MiniRocket: A Very Fast (Almost) Deterministic Transform for Time Series Classification](https://arxiv.org/abs/2012.08791)
+
+짧은 발췌:
+
+> “almost deterministic transform”
+
+프로젝트 반영:
+
+- ROCKET 계열이 단순한 deep learning 모델이 아니라, time-series transform + linear classifier 계열로 발전했다는 점을 확인했다.
+- 현재 데이터 수가 작으므로 parameter가 큰 Transformer나 깊은 CNN보다 ROCKET 계열 접근이 더 설득력 있는 후보라고 판단했다.
+
 ### StratifiedGroupKFold 검증 근거
 
 Source: [scikit-learn StratifiedGroupKFold documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedGroupKFold.html)
@@ -248,6 +275,6 @@ Source: [FDA DEN240021 decision summary](https://www.accessdata.fda.gov/cdrh_doc
 2. IMU는 착용자의 움직임, 자세, 회전 변화를 측정할 수 있어 fall-risk detection의 1차 센서로 사용할 수 있다.
 3. 공개 데이터로 검증 가능한 범위는 `normal_activity`와 `fall_risk`의 IMU 패턴 분류다.
 4. 로프 장력, 하네스 압력, 흡착 준비 상태, 가방형 그물망 전개 성능은 현재 데이터로 검증할 수 없다.
-5. 1D CNN/GRU도 비교했지만 현재 데이터 규모에서는 RandomForest가 더 안정적이었다.
-6. Peter Anchor의 다음 단계는 실제 현장 센서 동기화 데이터 수집이다.
-
+5. 1D CNN/GRU도 비교했지만 현재 데이터 규모에서는 성능이 낮았다.
+6. ROCKET-inspired random convolution kernel 파이프라인을 추가한 결과, 현재 공개 데이터 기준 best model은 ROCKET-inspired 모델이다.
+7. Peter Anchor의 다음 단계는 실제 현장 센서 동기화 데이터 수집이다.

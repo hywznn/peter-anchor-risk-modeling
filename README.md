@@ -17,6 +17,7 @@
 - 공개 IMU 데이터와 풍속 데이터 수집 파이프라인 구성
 - 가상 데이터 제거 및 실제 데이터 기반 전처리, feature engineering, 모델링
 - RandomForest, 1D CNN, GRU 비교 실험
+- ROCKET 논문 기반 random convolution kernel 시계열 파이프라인 직접 구현
 - 과적합 방지 검증 구조와 결과 해석
 - 원본 가방형 그물망 아이디어를 emergency protection layer로 재정리
 
@@ -55,7 +56,7 @@
 | 작업 위험성 | KOSHA 건물 외벽 청소 작업 기술지침, OSHA fall protection 기준 |
 | 센서 타당성 | LSM6DSO 6축 IMU, IMU 기반 fall detection 연구 |
 | 데이터 출처 | `jasonkau/fall-detection-dataset-IMU`, Open-Meteo Historical Weather API |
-| 모델 선택 | RandomForest baseline, 1D CNN, GRU 비교 실험 |
+| 모델 선택 | RandomForest baseline, 1D CNN, GRU, ROCKET-inspired pipeline 비교 실험 |
 | 안전 대응 연계 | fall detection 특허, smart harness 특허, wearable airbag/device 사례 |
 
 ## 4. 실제 데이터
@@ -84,6 +85,7 @@
 -> feature engineering
 -> RandomForest baseline 학습
 -> 1D CNN / GRU 시계열 모델 비교
+-> ROCKET-inspired random convolution kernel pipeline
 -> StratifiedGroupKFold out-of-fold 검증
 -> 안전 대응 정책과 연결
 ```
@@ -120,12 +122,13 @@
 | RandomForest | engineered window features | 0.7521 | 0.7485 | 0.8222 |
 | 1D CNN | 100 x 9 sequence | 0.5470 | 0.5469 | 0.6889 |
 | GRU | 100 x 9 sequence | 0.5556 | 0.5408 | 0.4889 |
+| ROCKET-inspired | random convolution features | 0.8547 | 0.8472 | 0.8222 |
 
-현재 공개 데이터는 window 117개로 작다. 따라서 딥러닝 모델이 더 복잡한 시계열 패턴을 학습하기에는 데이터가 부족했고, engineered feature 기반 RandomForest가 가장 안정적이었다.
+현재 공개 데이터는 window 117개로 작다. 1D CNN과 GRU는 데이터 규모에 비해 직접 학습 parameter가 있어 성능이 낮았다. 반면 ROCKET-inspired 방식은 random convolution kernel을 고정하고 regularized linear classifier만 학습해, 작은 데이터에서도 시계열 패턴을 더 안정적으로 활용했다.
 
 최종 선택:
 
-> 현재 단계에서는 RandomForest를 baseline으로 유지하고, 현장 IMU 데이터가 충분히 확보되면 1D CNN/GRU를 다시 후보로 확장한다.
+> 현재 단계의 best model은 ROCKET-inspired random convolution kernel pipeline이다. 다만 이 구현은 공식 ROCKET/MiniRocket 패키지가 아니라, 논문의 핵심 아이디어를 현재 IMU 데이터에 맞춰 직접 재현한 것이다.
 
 ## 8. 결과물
 
@@ -133,10 +136,14 @@
 | --- | --- |
 | `outputs/real_imu_model_metrics.json` | RandomForest 검증 결과 |
 | `outputs/sequence_model_comparison_metrics.json` | RandomForest, 1D CNN, GRU 비교 결과 |
+| `outputs/rocket_imu_model_metrics.json` | ROCKET-inspired 논문 기반 파이프라인 결과 |
 | `outputs/model_confusion_matrix_oof.png` | baseline confusion matrix |
 | `outputs/model_feature_importance_real_imu.png` | feature importance |
 | `outputs/sequence_model_comparison.png` | 모델별 지표 비교 |
 | `outputs/sequence_model_confusion_matrices.png` | 모델별 confusion matrix |
+| `outputs/all_model_comparison.png` | ROCKET-inspired까지 포함한 전체 모델 비교 |
+| `outputs/rocket_confusion_matrix_oof.png` | ROCKET-inspired confusion matrix |
+| `outputs/rocket_feature_space_pca.png` | ROCKET feature space preview |
 
 ## 9. 문서 구조
 
@@ -146,6 +153,7 @@
 | [docs/evidence_sources.md](docs/evidence_sources.md) | 논문, 특허, 공식 자료 근거 정리 |
 | [docs/ai_modeling_process.md](docs/ai_modeling_process.md) | 목적, 가설, 수집, 전처리, 모델링, 검증 |
 | [docs/sequence_model_comparison.md](docs/sequence_model_comparison.md) | 1D CNN/GRU 비교와 과적합 방지 |
+| [docs/rocket_paper_pipeline.md](docs/rocket_paper_pipeline.md) | ROCKET 논문 기반 random convolution pipeline |
 | [docs/system_architecture.md](docs/system_architecture.md) | 현재/미래 시스템 구조 |
 | [docs/backpack_safety_net_integration.md](docs/backpack_safety_net_integration.md) | 가방형 그물망 emergency layer 연계 |
 | [docs/wearable_robot_extension_plan.md](docs/wearable_robot_extension_plan.md) | 근력 보조 웨어러블 로봇 확장 조건 |
@@ -157,6 +165,7 @@ pip install -r requirements.txt
 python src/fetch_real_data.py
 python src/train_real_imu_model.py
 python src/compare_sequence_models.py
+python src/train_rocket_imu_model.py
 python src/visualize_real_data.py
 ```
 
