@@ -1,0 +1,171 @@
+{
+  "primary_model": "RandomForestClassifier",
+  "data_source": "data/real_imu_fall_detection_windows.csv",
+  "features": [
+    "imu_acceleration_peak_ms2",
+    "imu_acceleration_mean_ms2",
+    "imu_acceleration_std_ms2",
+    "gyro_peak_dps",
+    "gyro_mean_dps",
+    "body_angle_peak_deg",
+    "body_angle_mean_deg",
+    "worker_sway_proxy_ms2"
+  ],
+  "labels": [
+    "normal_activity",
+    "fall_risk"
+  ],
+  "validation_method": "StratifiedGroupKFold out-of-fold validation",
+  "n_splits": 3,
+  "evaluated_windows": 117,
+  "evaluated_recordings": 13,
+  "class_counts": {
+    "normal_activity": 72,
+    "fall_risk": 45
+  },
+  "accuracy": 0.7521367521367521,
+  "macro_f1": 0.7485362780701104,
+  "fall_recall": 0.8222222222222222,
+  "classification_report": {
+    "normal_activity": {
+      "precision": 0.864406779661017,
+      "recall": 0.7083333333333334,
+      "f1-score": 0.7786259541984732,
+      "support": 72.0
+    },
+    "fall_risk": {
+      "precision": 0.6379310344827587,
+      "recall": 0.8222222222222222,
+      "f1-score": 0.7184466019417476,
+      "support": 45.0
+    },
+    "accuracy": 0.7521367521367521,
+    "macro avg": {
+      "precision": 0.7511689070718879,
+      "recall": 0.7652777777777777,
+      "f1-score": 0.7485362780701104,
+      "support": 117.0
+    },
+    "weighted avg": {
+      "precision": 0.7773007238232253,
+      "recall": 0.7521367521367521,
+      "f1-score": 0.755480049484348,
+      "support": 117.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      51,
+      21
+    ],
+    [
+      8,
+      37
+    ]
+  ],
+  "fold_summaries": [
+    {
+      "fold": 1,
+      "test_windows": 36,
+      "test_recordings": [
+        "Daily Activities/01.Going Upstairs.xlsx",
+        "Daily Activities/05.Stepping.xlsx",
+        "Daily Activities/07.Quickly Sitting Down.xlsx",
+        "Fall Events/04.Left-side Fall.xlsx"
+      ],
+      "accuracy": 0.6111111111111112,
+      "fall_recall": 0.8888888888888888,
+      "confusion_matrix": [
+        [
+          14,
+          13
+        ],
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "fold": 2,
+      "test_windows": 45,
+      "test_recordings": [
+        "Daily Activities/03.Walking.xlsx",
+        "Daily Activities/04.Running.xlsx",
+        "Daily Activities/08.Jumping.xlsx",
+        "Fall Events/02.Backward Fall.xlsx",
+        "Fall Events/05.Forward Fall onto the Knees.xlsx"
+      ],
+      "accuracy": 0.8222222222222222,
+      "fall_recall": 0.7777777777777778,
+      "confusion_matrix": [
+        [
+          23,
+          4
+        ],
+        [
+          4,
+          14
+        ]
+      ]
+    },
+    {
+      "fold": 3,
+      "test_windows": 36,
+      "test_recordings": [
+        "Daily Activities/02.Going Downstairs.xlsx",
+        "Daily Activities/06.Sitting Down.xlsx",
+        "Fall Events/01.Forward Fall.xlsx",
+        "Fall Events/03.Right-side Fall.xlsx"
+      ],
+      "accuracy": 0.8055555555555556,
+      "fall_recall": 0.8333333333333334,
+      "confusion_matrix": [
+        [
+          14,
+          4
+        ],
+        [
+          3,
+          15
+        ]
+      ]
+    }
+  ],
+  "random_state": 42,
+  "validation_note": "Metrics use out-of-fold predictions from real public IMU fall / daily-activity recordings with group-aware folds by recording. They do not validate Peter Anchor hardware, rope tension, harness pressure, or field safety performance.",
+  "feature_importance": [
+    {
+      "feature": "body_angle_mean_deg",
+      "importance": 0.21206332926986712
+    },
+    {
+      "feature": "body_angle_peak_deg",
+      "importance": 0.19732535578073176
+    },
+    {
+      "feature": "worker_sway_proxy_ms2",
+      "importance": 0.13365546043508075
+    },
+    {
+      "feature": "imu_acceleration_peak_ms2",
+      "importance": 0.13268428475093158
+    },
+    {
+      "feature": "imu_acceleration_std_ms2",
+      "importance": 0.11733796501924731
+    },
+    {
+      "feature": "gyro_mean_dps",
+      "importance": 0.07661858205914272
+    },
+    {
+      "feature": "gyro_peak_dps",
+      "importance": 0.07243810061602021
+    },
+    {
+      "feature": "imu_acceleration_mean_ms2",
+      "importance": 0.05787692206897848
+    }
+  ]
+}

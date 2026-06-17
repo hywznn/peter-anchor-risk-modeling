@@ -1,0 +1,118 @@
+recording_id,activity_group,activity_label,fall_event,risk_type,start_sample,end_sample,n_samples,imu_acceleration_peak_ms2,imu_acceleration_mean_ms2,imu_acceleration_std_ms2,gyro_peak_dps,gyro_mean_dps,body_angle_peak_deg,body_angle_mean_deg,worker_sway_proxy_ms2
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,0,99,100,11.14,10.0005,0.4085,82,24.81,20.0,16.75,2.0465
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,50,149,100,11.59,9.9352,0.6777,58,21.05,24.0,19.38,1.2362
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,100,199,100,11.59,9.4453,0.9064,59,24.96,24.0,19.87,1.7412
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,150,249,100,11.68,9.996,1.0822,59,18.01,23.0,17.89,1.1768
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,200,299,100,11.68,10.3597,0.6676,65,27.07,19.0,15.57,1.5664
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,250,349,100,11.46,9.8647,0.7441,100,41.38,19.0,13.62,1.6047
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,300,399,100,11.46,9.631,0.7621,100,32.76,16.0,13.15,0.9409
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,350,449,100,12.29,9.9942,0.8266,82,32.88,19.0,14.11,1.9783
+Daily Activities/01.Going Upstairs.xlsx,daily_activity,going_upstairs,0,normal_activity,400,499,100,12.29,9.9456,0.9835,120,47.72,19.0,13.78,2.1814
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,0,99,100,12.57,10.1387,1.3573,172,51.19,13.0,5.76,2.3941
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,50,149,100,12.78,9.8604,1.464,172,39.5,10.0,5.71,1.8644
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,100,199,100,12.78,9.3958,1.5442,82,37.83,11.0,4.28,1.737
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,150,249,100,12.88,9.9481,1.5959,99,39.93,11.0,5.16,1.737
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,200,299,100,12.88,10.2877,1.6631,99,40.54,10.0,5.72,1.5627
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,250,349,100,12.86,9.9545,1.8295,92,41.94,11.0,4.39,1.5195
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,300,399,100,12.48,9.6299,1.6389,82,35.56,11.0,6.34,1.6321
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,350,449,100,12.23,9.5763,1.3714,72,34.98,10.0,5.47,1.6949
+Daily Activities/02.Going Downstairs.xlsx,daily_activity,going_downstairs,0,normal_activity,400,499,100,12.11,9.8251,1.1976,83,44.74,11.0,5.34,1.5918
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,0,99,100,12.69,10.0365,0.7444,150,73.2,15.0,8.96,2.2892
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,50,149,100,12.69,9.9017,0.776,147,53.88,12.0,6.5,1.5603
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,100,199,100,12.75,9.8747,0.8603,144,52.59,15.0,6.25,2.327
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,150,249,100,12.75,9.784,0.8299,155,59.89,15.0,7.12,2.327
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,200,299,100,12.21,9.9324,0.8884,155,65.77,15.0,6.27,2.1929
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,250,349,100,12.21,9.8522,0.8982,148,58.48,10.0,5.45,1.2962
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,300,399,100,12.06,9.9098,0.8564,148,54.55,10.0,5.18,1.5627
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,350,449,100,12.06,10.042,0.8175,138,56.8,10.0,5.52,1.5627
+Daily Activities/03.Walking.xlsx,daily_activity,walking,0,normal_activity,400,499,100,12.38,9.8701,0.6776,138,60.44,10.0,6.48,1.2174
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,0,99,100,15.81,10.2897,3.4665,262,119.5,42.0,11.5,3.1305
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,50,149,100,16.2,10.0556,4.0352,366,139.95,42.0,12.95,3.3045
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,100,199,100,16.2,9.3759,4.0214,391,141.24,35.0,12.72,3.3596
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,150,249,100,16.39,9.9889,3.9332,391,137.01,32.0,13.78,3.2111
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,200,299,100,16.39,10.4272,3.8058,430,148.73,39.0,15.13,3.5954
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,250,349,100,15.5,9.3769,3.7779,430,147.28,39.0,15.63,4.3781
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,300,399,100,17.03,10.28,4.0052,490,154.39,39.0,14.61,4.3878
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,350,449,100,17.03,9.8764,3.9183,490,165.25,35.0,14.48,4.2107
+Daily Activities/04.Running.xlsx,daily_activity,running,0,normal_activity,400,499,100,14.79,9.7101,3.5926,351,163.15,33.0,14.22,4.4854
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,0,99,100,10.92,9.8737,0.3222,76,25.89,17.0,11.59,1.6224
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,50,149,100,10.92,9.8416,0.3387,76,22.17,16.0,10.95,1.6224
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,100,199,100,10.22,9.8097,0.3221,61,21.78,16.0,10.96,1.0992
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,150,249,100,10.63,9.8308,0.3384,61,25.68,16.0,12.09,1.1933
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,200,299,100,10.63,9.8779,0.2989,56,24.68,17.0,12.23,1.5109
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,250,349,100,10.78,9.8525,0.339,59,26.24,17.0,12.26,1.5109
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,300,399,100,10.78,9.8896,0.3345,67,28.79,16.0,11.89,1.496
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,350,449,100,10.51,9.8396,0.3257,88,30.5,17.0,11.54,1.5311
+Daily Activities/05.Stepping.xlsx,daily_activity,stepping,0,normal_activity,400,499,100,10.34,9.8995,0.2593,88,30.5,19.0,12.3,1.854
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,0,99,100,9.87,9.8611,0.0051,2,0.61,6.0,6.0,0.0582
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,50,149,100,9.87,9.8591,0.0079,9,1.37,6.0,6.0,0.0852
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,100,199,100,9.87,9.4809,0.5842,57,10.31,10.0,7.2,0.631
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,150,249,100,12.58,9.4414,1.0143,101,39.73,21.0,9.59,3.5529
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,200,299,100,12.58,10.209,1.0473,101,35.51,27.0,18.19,3.7566
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,250,349,100,12.52,10.2768,0.5763,30,7.69,27.0,25.5,0.6976
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,300,399,100,10.09,9.8917,0.0785,8,3.55,27.0,24.61,0.6672
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,350,449,100,9.96,9.8517,0.0414,4,2.5,24.0,23.73,0.189
+Daily Activities/06.Sitting Down.xlsx,daily_activity,sitting_down,0,normal_activity,400,499,100,9.94,9.8358,0.0294,6,3.35,24.0,23.25,0.3354
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,0,99,100,9.87,9.8586,0.0042,2,0.23,11.0,11.0,0.0366
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,50,149,100,9.87,9.859,0.0046,2,0.32,11.0,11.0,0.0634
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,100,199,100,9.87,9.8535,0.011,8,1.47,13.0,11.14,0.3789
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,150,249,100,14.98,9.0493,2.0415,170,38.02,31.0,15.61,1.4151
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,200,299,100,15.26,9.7521,2.7577,170,45.29,31.0,16.49,1.6988
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,250,349,100,15.26,10.612,1.4955,37,10.69,14.0,13.41,1.6679
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,300,399,100,10.09,9.9131,0.0865,12,3.31,14.0,13.89,0.2231
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,350,449,100,9.91,9.8464,0.0299,5,2.09,14.0,13.7,0.2717
+Daily Activities/07.Quickly Sitting Down.xlsx,daily_activity,quickly_sitting_down,0,normal_activity,400,499,100,9.95,9.8499,0.0415,4,1.74,14.0,13.32,0.1745
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,0,99,100,9.87,9.8608,0.005,2,0.69,8.0,7.93,0.0812
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,50,149,100,9.87,9.8454,0.0342,15,2.68,8.0,7.64,0.1854
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,100,199,100,9.87,9.361,0.7214,52,11.1,10.0,7.1,0.5958
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,150,249,100,19.81,10.9735,3.2235,92,30.43,11.0,6.26,2.9409
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,200,299,100,19.89,9.455,5.9315,197,59.0,63.0,11.45,3.5074
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,250,349,100,19.89,8.8424,5.8044,527,78.17,79.0,14.97,3.5074
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,300,399,100,17.99,10.8558,3.0421,527,43.01,79.0,9.27,2.9278
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,350,449,100,10.14,9.8691,0.064,11,4.12,7.0,5.61,0.3522
+Daily Activities/08.Jumping.xlsx,daily_activity,jumping,0,normal_activity,400,499,100,9.9,9.8554,0.0238,6,2.82,6.0,5.58,0.2292
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,0,99,100,9.99,9.8726,0.0816,6,3.4,18.0,16.06,0.4291
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,50,149,100,9.99,9.8461,0.0856,17,6.64,19.0,17.42,0.5071
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,100,199,100,9.95,9.7838,0.1194,58,20.91,26.0,19.49,1.1096
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,150,249,100,10.75,8.2673,2.2039,376,82.59,64.0,22.99,9.0017
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,200,299,100,19.56,9.5509,4.0199,573,124.67,82.0,41.01,14.5067
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,250,349,100,19.56,11.2039,2.6975,573,63.89,82.0,63.48,8.2242
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,300,399,100,11.2,10.0811,0.4174,30,6.29,73.0,69.67,1.8662
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,350,449,100,10.16,10.0408,0.0629,5,0.82,70.0,69.08,0.3002
+Fall Events/01.Forward Fall.xlsx,fall,forward_fall,1,fall_risk,400,499,100,10.08,10.0429,0.011,1,0.24,69.0,69.0,0.0593
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,0,99,100,10.0,9.8549,0.0825,8,3.96,17.0,15.66,0.4736
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,50,149,100,10.0,9.8374,0.0873,24,8.54,17.0,15.87,0.4517
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,100,199,100,9.88,9.266,0.9723,107,32.73,17.0,15.46,1.2399
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,150,249,100,23.87,9.6549,5.7236,330,92.56,69.0,23.46,22.0246
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,200,299,100,23.87,10.1239,5.9321,330,82.51,71.0,46.2,22.0246
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,250,349,100,13.39,9.7481,1.9523,79,18.74,71.0,58.72,7.7173
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,300,399,100,10.32,9.8709,0.2704,16,3.88,59.0,56.85,1.04
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,350,449,100,10.01,9.9027,0.0422,3,1.42,57.0,56.99,0.1717
+Fall Events/02.Backward Fall.xlsx,fall,backward_fall,1,fall_risk,400,499,100,9.99,9.9155,0.0337,3,1.1,57.0,57.0,0.0925
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,0,99,100,9.9,9.8736,0.0076,18,4.18,14.0,14.0,0.0758
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,50,149,100,9.9,9.8596,0.0239,58,21.85,19.0,14.62,0.8851
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,100,199,100,9.87,9.4498,0.7251,72,42.35,27.0,19.74,2.9595
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,150,249,100,15.91,7.833,2.1694,608,126.56,90.0,35.47,15.7555
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,200,299,100,15.91,8.0635,2.5109,608,142.57,90.0,65.26,15.7555
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,250,349,100,15.23,9.8502,1.2111,518,44.01,90.0,84.57,9.2195
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,300,399,100,10.32,10.1515,0.0713,22,4.14,86.0,85.53,0.3676
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,350,449,100,10.15,10.1265,0.0198,3,0.51,86.0,85.87,0.0723
+Fall Events/03.Right-side Fall.xlsx,fall,right_side_fall,1,fall_risk,400,499,100,10.16,10.1359,0.0079,1,0.12,86.0,86.0,0.029
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,0,99,100,10.1,9.8992,0.0905,23,8.39,10.0,6.94,0.876
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,50,149,100,9.97,9.8763,0.0418,20,11.36,8.0,6.06,0.4385
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,100,199,100,10.16,9.8634,0.1916,131,41.83,13.0,8.19,1.1641
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,150,249,100,16.59,9.0027,1.8663,306,107.92,90.0,26.03,16.4046
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,200,299,100,16.85,9.9058,2.8901,444,126.41,90.0,60.69,16.6952
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,250,349,100,16.85,10.7977,1.8168,444,55.67,90.0,82.78,7.4554
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,300,399,100,10.12,9.9457,0.0525,31,4.01,87.0,86.44,0.2433
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,350,449,100,9.95,9.9216,0.0095,3,0.66,87.0,86.79,0.0368
+Fall Events/04.Left-side Fall.xlsx,fall,left_side_fall,1,fall_risk,400,499,100,9.94,9.9208,0.0078,2,0.42,87.0,87.0,0.0328
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,0,99,100,10.54,9.9672,0.2433,35,15.48,13.0,8.37,1.4511
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,50,149,100,10.25,9.8678,0.1135,19,7.2,9.0,6.44,0.6614
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,100,199,100,10.25,9.7717,0.3116,26,10.66,7.0,5.94,0.3426
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,150,249,100,22.01,8.9359,3.1077,271,43.0,26.0,8.44,9.2403
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,200,299,100,22.82,8.5182,4.1315,336,97.35,90.0,38.03,10.8859
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,250,349,100,22.82,9.3977,2.8813,336,69.51,90.0,69.64,10.8859
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,300,399,100,10.98,9.9709,0.2279,54,8.89,84.0,73.68,1.7124
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,350,449,100,10.44,9.9984,0.1482,21,4.51,75.0,73.24,0.6466
+Fall Events/05.Forward Fall onto the Knees.xlsx,fall,forward_fall_onto_the_knees,1,fall_risk,400,499,100,10.44,9.898,0.2399,21,6.14,75.0,71.1,1.3007

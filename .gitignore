@@ -1,0 +1,24 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+*.pkl
+*.joblib
+.env
+.env.*
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# Team project source materials should not be published from this repo.
+*.pdf
+*.ppt
+*.pptx
+*.key
+team_materials/
+original_materials/
+awards/

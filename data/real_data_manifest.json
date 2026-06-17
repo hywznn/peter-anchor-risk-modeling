@@ -1,0 +1,49 @@
+{
+  "created_at_utc": "2026-06-16T05:27:23+00:00",
+  "sources": {
+    "imu": {
+      "name": "fall-detection-dataset-IMU",
+      "url": "https://github.com/jasonkau/fall-detection-dataset-IMU",
+      "license": "MIT",
+      "source_files": [
+        "Daily Activities/01.Going Upstairs.xlsx",
+        "Daily Activities/02.Going Downstairs.xlsx",
+        "Daily Activities/03.Walking.xlsx",
+        "Daily Activities/04.Running.xlsx",
+        "Daily Activities/05.Stepping.xlsx",
+        "Daily Activities/06.Sitting Down.xlsx",
+        "Daily Activities/07.Quickly Sitting Down.xlsx",
+        "Daily Activities/08.Jumping.xlsx",
+        "Fall Events/01.Forward Fall.xlsx",
+        "Fall Events/02.Backward Fall.xlsx",
+        "Fall Events/03.Right-side Fall.xlsx",
+        "Fall Events/04.Left-side Fall.xlsx",
+        "Fall Events/05.Forward Fall onto the Knees.xlsx"
+      ],
+      "sample_rows": 6526,
+      "window_rows": 117,
+      "notes": "Public wearable IMU recordings for fall and daily activity detection. Acceleration values are normalized from source centi-m/s^2 scale."
+    },
+    "wind": {
+      "name": "Open-Meteo Historical Weather API",
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "location": "Seoul, South Korea",
+      "latitude": 37.5665,
+      "longitude": 126.978,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "rows": 8760,
+      "notes": "Hourly historical wind speed and gusts at 10 m."
+    }
+  },
+  "not_publicly_available": [
+    "Peter Anchor field rope tension time series",
+    "Peter Anchor harness pressure time series",
+    "suction readiness logs from the proposed hardware"
+  ],
+  "outputs": {
+    "imu_samples": "data/real_imu_fall_detection_samples.csv",
+    "imu_windows": "data/real_imu_fall_detection_windows.csv",
+    "wind": "data/real_weather_wind_seoul_2025.csv"
+  }
+}
